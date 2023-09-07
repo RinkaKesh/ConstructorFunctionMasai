@@ -1,0 +1,2 @@
+# ConstructorFunctionMasai
+masai assignment
