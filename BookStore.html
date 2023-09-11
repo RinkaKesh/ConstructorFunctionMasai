@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store</title>
+</head>
+<body>
+    <h3>Book Store</h3>
+    <script>
+        function Author(name,birthyear,nationality){
+            this.name=name;
+            this.birthyear=birthyear;
+            this.nationality=nationality;
+        }
+        function Book(title,Author,genre,price){
+         this.title=title;
+         this.author=Author;
+         this.genre=genre;
+         this.price=price;
+
+        }
+        Book.prototype.getBookInfo=function(){
+            console.log(
+            `Title ->${this.title}
+             Author->${this.author.name}
+             Genre ->${this.genre}
+             Price ->${this.price}`)
+
+             alert( `Title ->${this.title}
+             Author->${this.author.name}
+             Genre ->${this.genre}
+             Price ->${this.price}`)
+        }
+        let Author1=new Author("Rabindranath Tagore",1861,"Indian");
+        let Author2=new Author("Charles Dickens",1812,"British");
+        let Author3=new Author("Taslima Nasrin",1962,"Bangladeshi");
+         
+        let Book1=new Book("Ghare Baire",Author1,"Drama",280);
+        let Book2=new Book("Oliver Twist",Author2,"Serial novel",300);
+        let Book3=new Book("Dwikhondito",Author3,"Autobiography",260);
+        // console.log (Book1);
+        // console.log(Book2);
+        // console.log(Book3);
+        Book1.getBookInfo()
+    </script>
+      
+</body>
+</html>

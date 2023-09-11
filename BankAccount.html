@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BankAccount</title>
+</head>
+<body>
+    <h3>Bank Account</h3>
+    <table>
+        <tr>
+            <td><input type="text" placeholder="A/C Holder Name"></td>
+            <td><input type="button" placeholder="Balance"></td>
+        </tr>
+    </table>
+    <script>
+        function BankAccount(accountNumber,name,type,balance){
+            this.accountNumber=accountNumber
+            this.name=name;
+            this.type=type;
+            this.balance=balance;
+            this.active=true;
+        }
+
+            BankAccount.prototype.deposit=function(amount){
+                if(amount>0){
+                this.balance+=amount;
+                alert(`${amount} added successfully`)
+                console.log(`${amount} added successfully`)}
+                else{
+                    console.log("Invalid amount");
+                }
+            }
+            BankAccount.prototype.withdraw=function(amount){
+                if(this.active==true && amount>0 && this.balance>=amount){
+                balance-=amount;
+                alert(`successfully wihdrawn ${amount}` )
+                console.log(`successfully wihdrawn ${amount}`)}
+                else{
+                    "Invalid amount or Insufficient balance"
+                }
+            }
+            BankAccount.prototype.getbalance=function(){
+              alert(`Remaining balancnce ${this.balance}`)
+              console.log(`Balance in ${this.name}'s account is ${this.balance}`);
+            }
+            BankAccount.prototype.isActive=function(){
+                return this.active
+            }
+        
+
+        let person1=new BankAccount(3108765442,"Rinka","Savings",2000);
+        let person2=new BankAccount(3109876321,"Riya","current",10000);
+        let person3=new BankAccount(3106743101,"Arun","current",20000);
+        let person4=new BankAccount(3109845319,"Jayasri","Savings",10);
+        
+        console.log(person1);
+        console.log(person2);
+        person1.withdraw(0);
+        person1.getbalance();
+        person1.deposit(40000);
+        person2.getbalance();
+
+        person4.active=false;
+
+        function getTotalBalance(Ofpersons){
+            let total=0;
+            for(account of Ofpersons){
+              if(account.isActive()) {
+                total+=account.balance;
+              } 
+            }
+          console.log(total);
+        }
+        let Ofpersons=[person1,person2,person3,person4]
+        getTotalBalance(Ofpersons)
+    </script>
+</body>
+</html>
